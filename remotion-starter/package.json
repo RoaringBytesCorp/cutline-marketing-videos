@@ -1,0 +1,28 @@
+{
+  "name": "remotion-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared Remotion starter for motion-graphics marketing videos: motion library in src/lib, brand placeholders in src/foundation. 4K, 60 fps.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "compositions": "remotion compositions"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "4.0.539",
+    "@remotion/noise": "4.0.539",
+    "@remotion/paths": "4.0.539",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.539",
+    "@remotion/renderer": "4.0.539",
+    "@types/node": "24.19.2",
+    "@types/react": "19.2.18",
+    "typescript": "5.9.3"
+  }
+}

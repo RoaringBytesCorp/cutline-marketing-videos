@@ -1,0 +1,21 @@
+# Local secrets (app credentials, API keys)
+.env
+.env.*
+!.env.example
+
+.DS_Store
+
+# Installed packages and browser login state (session cookies)
+node_modules/
+.auth/
+
+# Raw app captures: large, and they contain the demo account's real-looking
+# personal and third-party data. The report, page structure and scripts are kept.
+build/*/capture/screens/
+build/*/capture/recordings/
+build/*/capture/components/
+build/*/capture/assets/
+build/*/capture/structure/account.*
+
+# Renders that show real personal data (for example the account page) stay local.
+output/*/capture-private/
