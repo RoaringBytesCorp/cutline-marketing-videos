@@ -3,16 +3,6 @@
 It's a playbook that turns an AI assistant into a small video studio that makes polished, animated marketing videos for our products.
 
 ## Setup
-Binary assets in `build/` and renders in `output/` (audio, images, fonts, video, PDFs) are stored with Git LFS. Install it once before cloning, or the files arrive as small pointer files:
-
-```sh
-brew install git-lfs
-git lfs install
-```
-
-If you already cloned without it, run `git lfs pull` inside the repo.
-
-The renders in `output/` add up to several GB. To clone without them, run `GIT_LFS_SKIP_SMUDGE=1 git clone <repo>`, then `git lfs pull --exclude="output/**"`.
 
 ### Tools
 The tools a video needs depend on what it captures. Claude checks for them when a video starts and asks you to install anything that's missing.
@@ -21,7 +11,6 @@ The tools a video needs depend on what it captures. Claude checks for them when 
 |---|---|---|
 | Node (current LTS) | rendering and capture scripts | `brew install node` |
 | ffmpeg | encoding and render checks | `brew install ffmpeg` |
-| Git LFS | assets and renders | see above |
 | Xcode and a simulator runtime | iOS app capture | Xcode from the App Store, then the iOS runtime in Xcode › Settings › Components |
 | Android SDK (`adb`, `emulator`) and an emulator image | Android app capture | `brew install --cask android-studio`, then create a device in Android Studio's Device Manager |
 
