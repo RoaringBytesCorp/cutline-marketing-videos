@@ -2,6 +2,41 @@
 
 It's a playbook that turns an AI assistant into a small video studio that makes polished, animated marketing videos for our products.
 
+## Two ways to use it
+
+| | 1. This repo | 2. The skill |
+|---|---|---|
+| How | Clone the repo and run `claude` inside it | Copy one file, `SKILL.md`, into `~/.claude/skills/` and run `claude` in any folder |
+| Start a video | `/new-video`, `/resume-video` | `/cutline-video-lite`, or just ask for a marketing video |
+| Workers | A team of agents, research and scenes built in parallel | One Claude session does every step in order |
+| Product screens | iOS simulator, Android emulator, or web app | Web app, or screenshots you provide |
+| Audio | Music, voiceover and captions | Music only |
+| Versions per run | Several orientations and languages from one cut | One orientation, one language and one length |
+| Building blocks | A shared motion library and tested render and check scripts | Claude writes a small Remotion project and its helpers on each run, so results vary more |
+| Review | A fresh agent reviews every draft | Claude checks its own drafts, at most 3 |
+| Best for | The full studio, on our machines | Handing the workflow to someone else quickly |
+
+Both use the same Quality bar (4K, 60 fps, safe zones, beat-synced motion) and keep each video's brief and memory in `generations/`, so a video can be picked up again later.
+
+### 1. Use this repo
+
+Clone it, install the [tools](#tools), then run `claude` in the repo folder. Type `/new-video` to start a video, or `/resume-video` to pick up an earlier one. Everything below [Setup](#setup) describes this way.
+
+### 2. Use the skill
+
+`skills/cutline-video-lite/SKILL.md` is the whole workflow in a single file that you can share on its own; no clone, no agents. On each run it creates everything it needs: the folders, the brief and memory files, and a small Remotion project from code embedded in the file. It renders and checks with plain ffmpeg and Remotion commands.
+
+```sh
+mkdir -p ~/.claude/skills/cutline-video-lite
+cp skills/cutline-video-lite/SKILL.md ~/.claude/skills/cutline-video-lite/
+brew install node ffmpeg
+```
+
+Then open `claude` in any folder and type `/cutline-video-lite`, or just ask for a marketing video.
+- **Where it works:** `./cutline/` inside that folder, so it never mixes its files with your code.
+- **Keys and the demo account:** they go in `./cutline/.env`; the skill tells you the exact path.
+- **Platform:** made for macOS. Linux may work, and Windows isn't supported.
+
 ## Setup
 
 ### Tools
